@@ -1,4 +1,6 @@
-## front-end 
+# front-end
+Repositório destinado ao front-end do produto Whirl - turbinas geradoras de energia
+
 
 ### como rodar 
 
