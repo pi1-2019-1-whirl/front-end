@@ -1,4 +1,5 @@
 import React from 'react';
+import Routes from './routes';
 
 import Navbar from './components/Navbar/Navbar'
 
@@ -12,5 +13,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
