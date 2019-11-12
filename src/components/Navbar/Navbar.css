@@ -1,0 +1,46 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #00CCC9;
+    height: 56px;
+}
+
+.navbar_navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navbar_logo a img{
+    width: 50px;
+    height: 45px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.navbar_navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar_navigation li {
+    padding: 0 0.5rem;
+}
+
+.navbar_options a {
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar_options a:hover,
+.navbar_options a:active {
+    color: #0ea0c9;
+}
