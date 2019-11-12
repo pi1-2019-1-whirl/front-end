@@ -1,7 +1,18 @@
 import React from 'react';
-
 import Routes from './routes';
 
-const App = () => <Routes />
+import Navbar from './components/Navbar/Navbar'
+
+function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <main style = {{marginTop: '64px'}}> 
+      <p>This is the page content !</p>
+      </main>
+    </div>
+  );
+}
+
 
 export default App;
