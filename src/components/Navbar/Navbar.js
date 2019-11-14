@@ -1,7 +1,7 @@
 import React from "react";
 import logo from './logo.png';
 
-import "./Navbar.css";
+import "../css/Navbar.css";
 
 const navbar = props => (
   <header className="navbar">
@@ -16,10 +16,10 @@ const navbar = props => (
       <div className="navbar_options">
         <ul>
           <li>
-            <a href="/">Instalação </a>{" "}
+            <a href="/instalacao">Instalação </a>{" "}
           </li>{" "}
           <li>
-            <a href="/">Manutenção </a>{" "}
+            <a href="/manutencao">Manutenção </a>{" "}
           </li>{" "}
         </ul>{" "}
       </div>
