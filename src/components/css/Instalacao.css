@@ -1,0 +1,28 @@
+button,
+optgroup,
+select,
+textarea {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none; 
+    appearance: none;
+  }
+
+.formulario {
+    position: relative;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.capacidade_caixa label {
+    font-family: 'Varela Round', sans-serif;
+}
+.titulo_instalacao{
+    font-family: 'Varela Round', sans-serif;
+    position: relative;
+}
+
