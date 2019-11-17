@@ -14,7 +14,12 @@ input {
   }
 
 .formulario {
-    position: relative;
+    position: fixed;
+    padding: 5%;
+    right: 25px;
+    border: 20%;
+    left: 0;
+    
     font-family: 'Varela Round', sans-serif;
 }
 
@@ -23,6 +28,16 @@ input {
 }
 .titulo_instalacao{
     font-family: 'Varela Round', sans-serif;
-    position: relative;
+    position: fixed;
+    padding: 10px;
+    right: 20%;
+    height: 0px;
+    width: 30px;
+    border: 40px;
+    left: 40px;
+    color: white;
 }
 
+div h1 {
+    font-family: 'Varela Round', sans-serif;
+}

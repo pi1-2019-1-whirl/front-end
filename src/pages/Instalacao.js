@@ -10,7 +10,7 @@ const Instalacao = () => (<div className="App">
     <h1 class="titulo_instalacao">Instalação</h1>
     <form class="formulario">
         <label class="altura_caixa">
-            <a>Altura da caixa d'água (m):</a>
+            Altura da caixa d'água (m):
             <p></p>
             <input type="number" step="0.01" name="altura_caixa"/>
         </label >
@@ -29,6 +29,11 @@ const Instalacao = () => (<div className="App">
         <p></p>
         <button>Submeter</button>
     </form>
+    <div class="resultado">
+        <h1>
+            Energia gerada
+        </h1>
+    </div>
     </body>
 </main>
 </div>);
