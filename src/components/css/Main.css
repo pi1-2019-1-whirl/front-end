@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Open+Sans|Raleway|Roboto&display=swap');
 
+body {
+    margin: 0;
+    background-color:#53D5C2;
+}
+
+h1 {
+    margin: 0;
+}
+
 .App{
  text-align: center;
-
-
-position:absolute;
 }
 .App{
- top: 0%;
- right:0% ;
- left: 0%;
-background-color:#53D5C2;
 width:100%;
 height:100%;
 }
@@ -21,7 +23,6 @@ height:100%;
 }
 .Nome{
  color: #47c4c6;
- margin: 0%;
  font-size: 70px;
  font-family: 'Varela Round', sans-serif;
 }

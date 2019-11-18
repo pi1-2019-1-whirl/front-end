@@ -9,33 +9,28 @@ textarea {
 }
 
 input {
+    text-align:center;
+    outline: none;
     -webkit-appearance: none; 
     appearance: none;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
   }
 
 .formulario {
-    position: fixed;
-    padding: 5%;
-    right: 25px;
-    border: 20%;
-    left: 0;
-    
     font-family: 'Varela Round', sans-serif;
+    margin: auto;
 }
 
 .capacidade_caixa label {
     font-family: 'Varela Round', sans-serif;
 }
+
 .titulo_instalacao{
     font-family: 'Varela Round', sans-serif;
-    position: fixed;
-    padding: 10px;
-    right: 20%;
-    height: 0px;
-    width: 30px;
-    border: 40px;
-    left: 40px;
     color: white;
+    text-align: start;
 }
 
 div h1 {
