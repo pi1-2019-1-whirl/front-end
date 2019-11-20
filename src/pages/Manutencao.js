@@ -27,15 +27,17 @@ class Manutencao extends Component {
 	}
 
 	updateChart() {
-		axios.get(``)  /*LINK PARA O SITE */
+		axios.get(`http://www.mocky.io/v2/5dd592123300008f87f38244`)  /*LINK PARA O SITE */
 			.then(res => {
 				const response = res.data;
-				this.state.power = response.power;
-				this.state.current = response.current;
-				this.state.is_working = response.is_working;
-				//console.log(this.state.power)
-				//console.log(this.state.current)
-				//console.log(this.state.is_working)
+				this.setState({
+					power: response.power,
+					current: response.current,
+					is_working: response.is_working,
+				})
+				console.log(this.state.power)
+				console.log(this.state.current)
+				console.log(this.state.is_working)
 			})
 		yVal = this.state.current;
 		dps.push({ x: xVal, y: yVal });
