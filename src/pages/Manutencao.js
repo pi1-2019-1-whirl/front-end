@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Navbar from "../components/Navbar/Navbar";
-import { Line, Bar, Pie } from 'react-chartjs-2';
 import "../components/css/Manutencao.css";
 import CanvasJSReact from "../components/assets/canvasjs.react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-var dps = [{ x: 1, y: 10 }, { x: 2, y: 13 }];   //dataPoints.
+var dps = [];   //dataPoints.
 var xVal = dps.length + 1;
-var yVal = 15;
+var yVal = 3;
 var updateInterval = 1000;
+var config = {
+	crossdomain: true,
+    headers: {'Access-Control-Allow-Origin': '*'}
+};
 
 class Manutencao extends Component {
 	constructor() {
@@ -27,15 +30,14 @@ class Manutencao extends Component {
 	}
 
 	updateChart() {
-		axios.get(``)  /*LINK PARA O SITE */
+		axios.get('http://localhost:5001/energy_log/1', config)  /*LINK PARA O SITE */
 			.then(res => {
-				const response = res.data;
-				this.state.power = response.power;
-				this.state.current = response.current;
-				this.state.is_working = response.is_working;
-				//console.log(this.state.power)
-				//console.log(this.state.current)
-				//console.log(this.state.is_working)
+				const response = res.data.data;
+				this.setState({
+					power: response.power, 
+					current: response.current,
+					is_working: response.is_working
+				})
 			})
 		yVal = this.state.current;
 		dps.push({ x: xVal, y: yVal });
@@ -71,10 +73,10 @@ class Manutencao extends Component {
 					/>
 				</div>
 				<div>
-					<h1>
-						Está funcionando ?
+					<div>
+						<h1>Está funcionando ?</h1>
 						{<h1>{(this.state.is_working) ? "SIM" : "NÃO" }</h1>}
-					</h1>
+					</div>
 					<h1>
 					</h1>
 				</div>
