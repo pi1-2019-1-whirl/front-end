@@ -29,10 +29,11 @@ input {
 
 .titulo_instalacao{
     font-family: 'Varela Round', sans-serif;
-    color: white;
-    text-align: start;
+    color: #00CCC9;
+    text-align: center;
 }
 
 div h1 {
+    color: #00CCC9;
     font-family: 'Varela Round', sans-serif;
 }
