@@ -22,7 +22,7 @@ class Manutencao extends Component {
 	state = {
 		power: 0,
 		current: 0,
-		is_working: true,
+		is_working: false,
 	}
 
 	componentDidMount() {
@@ -52,7 +52,8 @@ class Manutencao extends Component {
 		const options = {
 			animationEnabled: true,
 			title: {
-				text: "Energia Gerada"
+				text: "Energia Gerada",
+				fontFamily: "Varela Round",
 			},
 			data: [{
 
@@ -65,6 +66,7 @@ class Manutencao extends Component {
 
 		return (
 			<div className="App">
+			<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
 				<Navbar />
 				<div className="Gráfico">
 					<h1>React Column Chart</h1>
@@ -72,13 +74,13 @@ class Manutencao extends Component {
 						onRef={ref => this.chart = ref}
 					/>
 				</div>
+				<br></br>
+				<br></br>
 				<div>
-					<div>
+					<div className="funcionando" > 
 						<h1>Está funcionando ?</h1>
-						{<h1>{(this.state.is_working) ? "SIM" : "NÃO" }</h1>}
+						{<h1 className="status">{(this.state.is_working) ? <h1 className="sim">SIM</h1> : <h1 className="nao">NÃO</h1> }</h1>}
 					</div>
-					<h1>
-					</h1>
 				</div>
 			</div>
 		);

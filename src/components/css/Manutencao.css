@@ -2,3 +2,15 @@
     margin: auto;
     align-self: center;
 }
+
+.funcionando {
+    font-family: "Varela Round",sans-serif;
+}
+
+.sim{
+    color: green;
+}
+
+.nao {
+    color: red;
+}
