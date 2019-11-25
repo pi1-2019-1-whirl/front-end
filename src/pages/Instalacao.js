@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import "../components/css/Instalacao.css"
 
+
 class Instalacao extends Component {
     state = {
-        altura_caixa: null,
-        capacidade_caixa: null,
-        tubulacao_caixa: null,
+        altura_caixa: 0,
+        capacidade_caixa: 0,
+        tubulacao_caixa: 0,
     }
 
     handleInput = ({ target }) => {
@@ -16,20 +17,26 @@ class Instalacao extends Component {
         console.log(this.state.tubulacao_caixa)
     }
 
+
     render() {
+
         return (
             <div className="App">
                 <Navbar />
-                <main className="Main">
+                <div className="Main">
                     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
-                    <body>
-                        <br></br>
-                        <br></br>
-
+                    <div>
                         <h1 className="titulo_instalacao">Instalação</h1>
-                        <br></br>
-                        <br></br>
                         <form className="formulario">
+                            <div class="radio-item">
+                                <input type="radio" id="ritema" name="ritem" value="ropt1" />
+                                <label for="ritema">Option 1</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ritemb" name="ritem" value="ropt2" />
+                                <label for="ritemb">Option 2</label>
+                            </div>
+                            <br></br>
                             <label className="altura_caixa">
                                 Altura da caixa d'água (m):
                         <p></p>
@@ -58,14 +65,14 @@ class Instalacao extends Component {
                                 Energia gerada
                             </h1>
                             <br></br>
-                        <br></br>
-                        <br></br>
+                            <br></br>
+                            <br></br>
                             <h1 className="valor_calculado">
                                 "RESULTADO NUMÉRICO"
                             </h1>
                         </div>
-                    </body>
-                </main>
+                    </div>
+                </div>
             </div>
         )
     }
