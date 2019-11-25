@@ -8,6 +8,7 @@ class Instalacao extends Component {
         altura_caixa: 0,
         capacidade_caixa: 0,
         tubulacao_caixa: 0,
+        verifica_posicao: true,
     }
 
     handleInput = ({ target }) => {
@@ -15,6 +16,7 @@ class Instalacao extends Component {
         console.log(this.state.altura_caixa)
         console.log(this.state.capacidade_caixa)
         console.log(this.state.tubulacao_caixa)
+        console.log(this.state.verifica_posicao)
     }
 
 
@@ -27,14 +29,16 @@ class Instalacao extends Component {
                     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
                     <div>
                         <h1 className="titulo_instalacao">Instalação</h1>
+                        <br></br>
                         <form className="formulario">
+                            <label>Em que parte está localizada a sua caixa</label>
                             <div>
                                 <div className="radio-item">
-                                    <input type="radio" id="ritema" name="ritem" value="ropt1" />
+                                    <input defaultChecked={this.state.verifica_posicao} type="radio" id="ritema" name="verifica_posicao" onClick={this.handleInput} value="true" />
                                     <label htmlFor="ritema">Superior</label>
                                 </div>
                                 <div className="radio-item">
-                                    <input type="radio" id="ritemb" name="ritem" value="ropt2" />
+                                    <input type="radio" id="ritemb" name="verifica_posicao" onClick={this.handleInput} value="false"/>
                                     <label htmlFor="ritemb">inferior</label>
                                 </div>
                             </div>
