@@ -2,77 +2,79 @@ button,
 optgroup,
 select,
 textarea {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 }
 
 input {
-    text-align:center;
-    outline: none;
-    -webkit-appearance: none; 
-    appearance: none;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-  }
+  text-align:center;
+  outline: none;
+  -webkit-appearance: none; 
+  appearance: none;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
 
 .radio-item {
-    display: inline-block;
-    position: relative;
-    padding: 0 6px;
-    margin: 10px 0 0;
-  }
+  display: inline-block;
+  position: relative;
+  margin: 20px 20px 0 20px;
+}
+
+.radio-item input[type='radio'] {
+  display: none;
+}
+
+.radio-item label {
+  display: flex;
+  align-items: center;
+}
   
-  .radio-item input[type='radio'] {
-    display: none;
-  }
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  border: 2px solid #00CCC9;
+  background-color: transparent;
+  margin-right: 6px;
+}
   
-  .radio-item label:before {
-    content: " ";
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    margin: 0 5px 0 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 11px;
-    color: white;
-    border: 2px solid #00CCC9;
-    background-color: transparent;
-  }
-  
-  .radio-item input[type=radio]:checked + label:after {
-    border-radius: 11px;
-    width: 12px;
-    height: 12px;
-    content: " ";
-    display: block;
-    background: #00CCC9;
-  }
+.radio-item input[type=radio]:checked + label:after {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  right: 0;
+  background: #00CCC9;
+}
 
 .formulario {
-    font-family: 'Varela Round', sans-serif;
-    margin: auto;
+  font-family: 'Varela Round', sans-serif;
+  margin: auto;
 }
 
 .capacidade_caixa label {
-    font-family: 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .titulo_instalacao{
-    font-family: 'Varela Round', sans-serif;
-    color: #00CCC9;
-    text-align: center;
-}
-
-#check { /* Change width and height */
-    width:4em;
-    height:4em;
+  font-family: 'Varela Round', sans-serif;
+  color: #00CCC9;
+  text-align: center;
 }
 
 div h1 {
-    color: #00CCC9;
-    font-family: 'Varela Round', sans-serif;
+  color: #00CCC9;
+  font-family: 'Varela Round', sans-serif;
 }

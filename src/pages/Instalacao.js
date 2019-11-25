@@ -28,13 +28,15 @@ class Instalacao extends Component {
                     <div>
                         <h1 className="titulo_instalacao">Instalação</h1>
                         <form className="formulario">
-                            <div class="radio-item">
-                                <input type="radio" id="ritema" name="ritem" value="ropt1" />
-                                <label for="ritema">Option 1</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="ritemb" name="ritem" value="ropt2" />
-                                <label for="ritemb">Option 2</label>
+                            <div>
+                                <div className="radio-item">
+                                    <input type="radio" id="ritema" name="ritem" value="ropt1" />
+                                    <label htmlFor="ritema">Superior</label>
+                                </div>
+                                <div className="radio-item">
+                                    <input type="radio" id="ritemb" name="ritem" value="ropt2" />
+                                    <label htmlFor="ritemb">inferior</label>
+                                </div>
                             </div>
                             <br></br>
                             <label className="altura_caixa">
