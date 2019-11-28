@@ -14,7 +14,10 @@ class Instalacao extends Component {
     }
 
     handleInput = ({ target }) => {
-        this.setState({ [target.name]: parseFloat(target.value) })
+        if(target.name === 'verifica_posicao')
+            this.setState({ [target.name]: parseFloat(target.value) })
+        else 
+            this.setState({ [target.name]: target.value })
     }
 
 
