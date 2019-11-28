@@ -64,6 +64,13 @@ input {
   margin: auto;
 }
 
+.titulo_instalacao{
+  font-family: 'Varela Round', sans-serif;
+}
+.posicao_caixa {
+  font-family: 'Varela Round', sans-serif;
+}
+
 .capacidade_caixa label {
   font-family: 'Varela Round', sans-serif;
 }
