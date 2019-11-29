@@ -23,6 +23,7 @@ class Manutencao extends Component {
 		power: 0,
 		current: 0,
 		is_working: false,
+		time: null
 	}
 
 	componentDidMount() {
@@ -33,19 +34,27 @@ class Manutencao extends Component {
 		axios.get('http://localhost:5001/energy_log/1', config)  /*LINK PARA O SITE */
 			.then(res => {
 				const response = res.data.data;
-				this.setState({
-					power: response.power, 
-					current: response.current,
-					is_working: response.is_working
-				})
+				if(this.state.time !== response.time) {
+					this.setState({
+						power: response.power, 
+						current: response.current,
+						is_working: response.is_working,
+						time: response.time
+					})
+					yVal = this.state.current;
+					dps.push({ x: xVal, y: yVal });
+					xVal++;
+					if (dps.length > 10) {
+						dps.shift();
+					}
+					this.chart.render();
+				}
+				else {
+					this.setState({
+						is_working: false
+					})
+				}
 			})
-		yVal = this.state.current;
-		dps.push({ x: xVal, y: yVal });
-		xVal++;
-		if (dps.length > 10) {
-			dps.shift();
-		}
-		this.chart.render();
 	}
 
 	render() {
@@ -79,7 +88,7 @@ class Manutencao extends Component {
 				<div>
 					<div className="funcionando" > 
 						<h1>Está funcionando ?</h1>
-						{<h1 className="status">{(this.state.is_working) ? <h1 className="sim">SIM</h1> : <h1 className="nao">NÃO</h1> }</h1>}
+						{this.state.is_working ? <h1 className="sim">SIM</h1> : <h1 className="nao">NÃO</h1>}
 					</div>
 				</div>
 			</div>
