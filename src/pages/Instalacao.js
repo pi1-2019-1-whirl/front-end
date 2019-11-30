@@ -10,11 +10,21 @@ class Instalacao extends Component {
         capacidade_caixa: 0,
         tubulacao_caixa: 0,
         verifica_posicao: 1,
-        vazao_bomba: 0.2,
+        vazao_bomba: 0.05,
     }
 
     handleInput = ({ target }) => {
-        this.setState({ [target.name]: parseFloat(target.value) })
+        if(target.name === 'verifica_posicao')
+            this.setState({ [target.name]: parseInt(target.value) })
+        else 
+            this.setState({ [target.name]: parseInt(target.value) })
+    }
+
+    energiaGerada = () => {
+        let potenciaUtil = (0.6 * (this.state.vazao_bomba/1000) * 9810 * this.state.altura_caixa);
+        console.log(potenciaUtil)
+        let energia = (potenciaUtil * 2.778 * 0.0000001).toExponential();
+        return energia;
     }
 
     render() {
@@ -53,7 +63,7 @@ class Instalacao extends Component {
                                         {this.state.altura_caixa ? (
                                             <input required type="number" step="0.01" value={this.state.altura_caixa} onChange={this.handleInput} name="altura_caixa" />
                                         ) : (
-                                                <input required type="number" step="0.01" value="null" onChange={this.handleInput} name="altura_caixa" />
+                                                <input required type="number" step="0.01" value="" onChange={this.handleInput} name="altura_caixa" />
                                             )}
                                     </label >
                                     <p></p>
@@ -63,7 +73,7 @@ class Instalacao extends Component {
                                         {this.state.capacidade_caixa ? (
                                             <input required type="number" step="0.01" value={this.state.capacidade_caixa} onChange={this.handleInput} name="capacidade_caixa" />
                                         ) : (
-                                                <input required type="number" step="0.01" value="null" onChange={this.handleInput} name="capacidade_caixa" />
+                                                <input required type="number" step="0.01" value="" onChange={this.handleInput} name="capacidade_caixa" />
                                             )}
                                     </label>
                                     <p></p>
@@ -77,7 +87,7 @@ class Instalacao extends Component {
                                             {this.state.altura_caixa ? (
                                                 <input required type="number" step="0.01" value={this.state.altura_caixa} onChange={this.handleInput} name="altura_caixa" />
                                             ) : (
-                                                    <input required type="number" step="0.01" value="null" onChange={this.handleInput} name="altura_caixa" />
+                                                    <input required type="number" step="0.01" value="" onChange={this.handleInput} name="altura_caixa" />
                                                 )}
                                         </label >
                                         <p></p>
@@ -87,18 +97,14 @@ class Instalacao extends Component {
                                             {this.state.capacidade_caixa ? (
                                                 <input required type="number" step="0.01" value={this.state.capacidade_caixa} onChange={this.handleInput} name="capacidade_caixa" />
                                             ) : (
-                                                    <input required type="number" step="0.01" value="null" onChange={this.handleInput} name="capacidade_caixa" />
+                                                    <input required type="number" step="0.01" value="" onChange={this.handleInput} name="capacidade_caixa" />
                                                 )}
                                         </label>
                                         <p></p>
                                         <label className="vazao_bomba">
-                                            Vazão da bomba:
+                                            Vazão da bomba (l/s):
                                 <p></p>
-                                            {this.state.vazao_bomba ? (
-                                                <input required type="number" step="0.01" value={this.state.vazao_bomba} onChange={this.handleInput} name="vazao_bomba" />
-                                            ) : (
-                                                    <input required type="number" step="0.01" value="null" onChange={this.handleInput} name="vazao_bomba" />
-                                                )}
+                                            <input required type="number" step="0.01" min="0.005" value={this.state.vazao_bomba} onChange={this.handleInput} name="vazao_bomba" />
                                         </label>
                                         <p></p>
                                     </form>
@@ -114,13 +120,17 @@ class Instalacao extends Component {
                                 <h1 >
                                     Energia gerada
                                     <br></br>
-                                    {parseFloat(this.state.vazao_bomba * this.state.altura_caixa * 9.81*(this.state.capacidade_caixa/this.state.vazao_bomba)).toFixed(2) + " KW"}
+                                    {/* {0.6 * (this.state.vazao_bomba/1000) * 9810 * this.state.altura_caixa}
+                                    <br></br>
+                                    {this.state.capacidade_caixa / this.state.vazao_bomba}
+                                    <br></br> */}
+                                    { this.energiaGerada() }
                                 </h1>
                                 <br></br>
                                 <h1 >
                                     Potência útil
                                     <br></br>
-                                    {parseFloat(this.state.altura_caixa * 9.81 * 0.8*(this.state.capacidade_caixa/this.state.vazao_bomba)).toFixed(2) + " KW"}
+                                    {((0.6 * this.state.vazao_bomba * 9810 * this.state.altura_caixa) / 1000).toFixed(2) + " J"}
                                 </h1>
                             </div>
                         </div>
