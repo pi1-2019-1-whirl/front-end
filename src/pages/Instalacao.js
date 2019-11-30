@@ -67,16 +67,6 @@ class Instalacao extends Component {
                                             )}
                                     </label >
                                     <p></p>
-                                    <label className="capacidade_caixa">
-                                        Capacidade da caixa d'água (l):
-                                <p></p>
-                                        {this.state.capacidade_caixa ? (
-                                            <input required type="number" step="0.01" value={this.state.capacidade_caixa} onChange={this.handleInput} name="capacidade_caixa" />
-                                        ) : (
-                                                <input required type="number" step="0.01" value="" onChange={this.handleInput} name="capacidade_caixa" />
-                                            )}
-                                    </label>
-                                    <p></p>
                                 </form>
                             ) : (
                                     <form className="formulario">
@@ -91,15 +81,6 @@ class Instalacao extends Component {
                                                 )}
                                         </label >
                                         <p></p>
-                                        <label className="capacidade_caixa">
-                                            Capacidade da caixa d'água (l):
-                                <p></p>
-                                            {this.state.capacidade_caixa ? (
-                                                <input required type="number" step="0.01" value={this.state.capacidade_caixa} onChange={this.handleInput} name="capacidade_caixa" />
-                                            ) : (
-                                                    <input required type="number" step="0.01" value="" onChange={this.handleInput} name="capacidade_caixa" />
-                                                )}
-                                        </label>
                                         <p></p>
                                         <label className="vazao_bomba">
                                             Vazão da bomba (l/s):
