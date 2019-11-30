@@ -78,7 +78,6 @@ class Manutencao extends Component {
 			<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
 				<Navbar />
 				<div className="Gráfico">
-					<h1>React Column Chart</h1>
 					<CanvasJSChart options={options}
 						onRef={ref => this.chart = ref}
 					/>
