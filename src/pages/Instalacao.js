@@ -10,20 +10,23 @@ class Instalacao extends Component {
         capacidade_caixa: 0,
         tubulacao_caixa: 0,
         verifica_posicao: 1,
-        vazao_bomba: 0.05,
+        vazao_bomba: 0.5,
     }
 
     handleInput = ({ target }) => {
-        if(target.name === 'verifica_posicao')
+        if (target.name === 'verifica_posicao') {
             this.setState({ [target.name]: parseInt(target.value) })
-        else 
-            this.setState({ [target.name]: parseInt(target.value) })
+            if (target.value) 
+                this.setState({ vazao_bomba: 0.5 })
+        }
+        else
+            this.setState({ [target.name]: target.value || 0})
+        this.energiaGerada()
     }
 
     energiaGerada = () => {
-        let potenciaUtil = (0.6 * (this.state.vazao_bomba/1000) * 9810 * this.state.altura_caixa);
-        console.log(potenciaUtil)
-        let energia = (potenciaUtil * 2.778 * 0.0000001).toExponential();
+        let potenciaUtil = (0.6 * (this.state.vazao_bomba / 1000) * 9810 * this.state.altura_caixa);
+        let energia = (potenciaUtil * 2.778 * 0.0000001).toExponential(3);
         return energia;
     }
 
@@ -60,11 +63,7 @@ class Instalacao extends Component {
                                     <label className="altura_caixa">
                                         Altura da caixa d'água (m):
                                 <p></p>
-                                        {this.state.altura_caixa ? (
-                                            <input required type="number" step="0.01" value={this.state.altura_caixa} onChange={this.handleInput} name="altura_caixa" />
-                                        ) : (
-                                                <input required type="number" step="0.01" value="" onChange={this.handleInput} name="altura_caixa" />
-                                            )}
+                                    <input required type="number" step="0.01" placeholder="ex.: 20.3" onChange={this.handleInput} name="altura_caixa" />
                                     </label >
                                     <p></p>
                                 </form>
@@ -74,18 +73,19 @@ class Instalacao extends Component {
                                         <label className="altura_caixa">
                                             Altura da caixa d'água (m):
                                 <p></p>
-                                            {this.state.altura_caixa ? (
-                                                <input required type="number" step="0.01" value={this.state.altura_caixa} onChange={this.handleInput} name="altura_caixa" />
-                                            ) : (
-                                                    <input required type="number" step="0.01" value="" onChange={this.handleInput} name="altura_caixa" />
-                                                )}
+                                        <input required type="number" step="0.01" placeholder="ex.: 20.3"  onChange={this.handleInput} name="altura_caixa" />
                                         </label >
                                         <p></p>
                                         <p></p>
                                         <label className="vazao_bomba">
                                             Vazão da bomba (l/s):
                                 <p></p>
-                                            <input required type="number" step="0.01" min="0.005" value={this.state.vazao_bomba} onChange={this.handleInput} name="vazao_bomba" />
+                                            {this.state.vazao_bomba === 0.5 ? (
+                                                <input required type="number" step="0.01" placeholder="ex.: 0.5" min="0.005" onChange={this.handleInput} name="vazao_bomba" />
+                                            ) : (
+                                                    <input required type="number" step="0.01" placeholder="ex.: 0.5" min="0.005" value={this.state.vazao_bomba} onChange={this.handleInput} name="vazao_bomba" />
+                                                )}
+
                                         </label>
                                         <p></p>
                                     </form>
@@ -105,7 +105,7 @@ class Instalacao extends Component {
                                     <br></br>
                                     {this.state.capacidade_caixa / this.state.vazao_bomba}
                                     <br></br> */}
-                                    { this.energiaGerada() }
+                                    {this.energiaGerada()}
                                 </h1>
                                 <br></br>
                                 <h1 >
