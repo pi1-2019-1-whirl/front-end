@@ -36,7 +36,6 @@ class Instalacao extends Component {
             <div className="App">
                 <Navbar />
                 <div className="Main">
-                    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
                     <div>
                         <br></br>
                         <br></br>

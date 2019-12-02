@@ -5,9 +5,10 @@ import "../components/css/Manutencao.css";
 import CanvasJSReact from "../components/assets/canvasjs.react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dps = [];   //dataPoints.
+let dps2 = [];
 var xVal = dps.length + 1;
 var yVal = 3;
-var updateInterval = 1000;
+var updateInterval = 1810;
 var config = {
 	crossdomain: true,
     headers: {'Access-Control-Allow-Origin': '*'}
@@ -34,7 +35,7 @@ class Manutencao extends Component {
 		axios.get('http://localhost:5001/energy_log/1', config)  /*LINK PARA O SITE */
 			.then(res => {
 				const response = res.data.data;
-				if(this.state.time !== response.time) {
+				if(response.is_working) {
 					this.setState({
 						power: response.power, 
 						current: response.current,
@@ -42,10 +43,13 @@ class Manutencao extends Component {
 						time: response.time
 					})
 					yVal = this.state.current;
-					dps.push({ x: xVal, y: yVal });
+					dps.push({ x: xVal, y: this.state.current });
+					dps2.push({ x: xVal, y: this.state.power });
+					
 					xVal++;
 					if (dps.length > 10) {
 						dps.shift();
+						dps2.shift();
 					}
 					this.chart.render();
 				}
@@ -56,38 +60,70 @@ class Manutencao extends Component {
 				}
 			})
 	}
-
 	render() {
-		const options = {
+		const options1 = {
 			animationEnabled: true,
 			title: {
-				text: "Energia Gerada",
+				text: "Corrente Gerada",
 				fontFamily: "Varela Round",
+				fontColor: "#68CDCA",
+				fontWeight: 700
+			},
+			axisY: {
+				title: "Corrente (mA)",
+				titleFontFamily: "Varela Round",
+				titleFontColor: "#454545",
+				titleFontWeight: 700
 			},
 			data: [{
-
 				type: "spline",
 				lineThickness: 4,
-				lineColor: "green",
-				dataPoints: dps, color: "dark-green"
+				lineColor: "#68CDCA",
+				dataPoints: dps,
+				color: "#454545"
+			}]
+		}
+
+		const options2 = {
+			animationEnabled: true,
+			title: {
+				text: "Potência Gerada",
+				fontFamily: "Varela Round",
+				fontColor: "#68CDCA",
+				fontWeight: 700
+			},
+			axisY: {
+				title: "Potência (mW)",
+				titleFontFamily: "Varela Round",
+				titleFontColor: "#454545",
+				titleFontWeight: 700
+			},
+			data: [{
+				type: "spline",
+				lineThickness: 4,
+				lineColor: "#68CDCA",
+				dataPoints: dps2, 
+				color: "#454545"
 			}]
 		}
 
 		return (
 			<div className="App">
-			<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"></link>
 				<Navbar />
-				<div className="Gráfico">
-					<CanvasJSChart options={options}
-						onRef={ref => this.chart = ref}
-					/>
+				<div className="funcionando" > 
+					<h1>Está funcionando ?</h1>
+					{this.state.is_working ? <h1 className="sim">SIM</h1> : <h1 className="nao">NÃO</h1>}
 				</div>
-				<br></br>
-				<br></br>
-				<div>
-					<div className="funcionando" > 
-						<h1>Está funcionando ?</h1>
-						{this.state.is_working ? <h1 className="sim">SIM</h1> : <h1 className="nao">NÃO</h1>}
+				<div className="grafico">
+					<div className="current-chart">
+						<CanvasJSChart options={options1}
+							onRef={ref => this.chart = ref}
+						/>
+					</div>
+					<div className="power-chart">
+						<CanvasJSChart options={options2}
+							onRef={ref => this.chart = ref}
+						/>
 					</div>
 				</div>
 			</div>

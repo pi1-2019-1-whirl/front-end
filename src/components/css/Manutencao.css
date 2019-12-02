@@ -1,16 +1,28 @@
 .grafico {
-    margin: auto;
-    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .funcionando {
     font-family: "Varela Round",sans-serif;
+    margin: 35px 0 0 0;
 }
 
 .sim{
-    color: green;
+    color: rgb(33, 216, 146);
 }
 
 .nao {
-    color: red;
+    color: rgb(231, 101, 140);
+}
+
+.current-chart {
+    width: 80%;
+    margin: 35px 0 35px 0;
+}
+
+.power-chart {
+    width: 80%;
+    margin: 0 0 35px 0;
 }
