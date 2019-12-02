@@ -35,6 +35,7 @@ class Manutencao extends Component {
 		axios.get('http://localhost:5001/energy_log/1', config)  /*LINK PARA O SITE */
 			.then(res => {
 				const response = res.data.data;
+				console.log(response.is_working)
 				if(response.is_working) {
 					this.setState({
 						power: response.power, 

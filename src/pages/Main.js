@@ -9,8 +9,8 @@ const Main = () => (
                   <img className="Logo" src={logo} alt="Logo" />
                   <h1 className="Nome">WHIRL</h1>
                   <div className="button-main">
-                        <button className ="butinst" href="/instalacao"> Instalação</button>
-                        <button className ="butmanu" href="/manutencao">Manutenção </button>   
+                        <a className ="butinst" href="/instalacao"> Instalação</a>
+                        <a className ="butmanu" href="/manutencao">Manutenção </a>   
                   </div>
             </div>
       </main>
